@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+</head>
+<body>
+{{> header}}
+
+  <div id="main-container">
+    <div id="contents">
+      <div id="form-container">
+        <h1>Create New Post</h1>
+        <form action="/createpost" method="post">
+        
+          <label for="bodyweight" class="input-label">Current Bodyweight (lbs):</label>
+          <input type="number" id="bodyweight" name="bodyweight" min="1" max="999" step="0.01">
+
+          <label for="squat" class="input-label">Squat (lbs):</label>
+          <input type="number" id="squat" name="squat" min="0" max="1500" step="0.01">
+
+          <label for="bench" class="input-label">Bench (lbs):</label>
+          <input type="number" id="bench" name="bench" min="0" max="1500" step="0.01">
+
+          <label for="deadlift" class="input-label">Deadlift (lbs):</label>
+          <input type="number" id="deadlift" name="deadlift" min="0" max="1500" step="0.01">
+          <br>
+          <button type="submit">Create Post</button>
+
+          {{#if error}}
+          <div class="error">{{error}}</div>
+          {{/if}}
+          {{#if success}}
+          <div class="success">{{success}}</div>
+          {{/if}}
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

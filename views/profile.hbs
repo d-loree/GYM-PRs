@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<title>GYM PR's</title>
+<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+</head>
+<body>
+{{> header}}
+
+      <div class="post-container">
+
+        {{#each posts}}
+            <div class="post">
+                <div class="post-top">
+                    <h2>{{userid}} at {{bodyweight}}lbs</h2>
+                    <h2 class="date">- {{timeposted}}</h2>
+                </div>
+
+                <div class="post-bottom">
+                      <p><b>Bench</b><br><br>{{bench}}</p>
+                      <hr color="#6d6d6d">
+                      <p><b>Squat</b><br><br>{{squat}}</p>
+                      <hr color="#6d6d6d">
+                      <p><b>Deadlift</b><br><br>{{deadlift}}</p>
+                      <hr color="#6d6d6d">
+                      <p><b>Total</b><br><br>{{total}}</p>
+                </div>
+
+                <form action="/deletepost" method="post">
+                    <input type="hidden" name="userid" value="{{this.userid}}">
+                    <input type="hidden" name="password" value="{{this.password}}">
+                    <input type="hidden" name="role" value="{{this.role}}">
+                    <input type="hidden" name="postid" value="{{postid}}">
+                    <button type="submit" id="delete-post-button">Delete Post</button>
+                </form>
+
+            </div>
+        {{/each}}
+        
+      </div>
+
+</body>
+</html>

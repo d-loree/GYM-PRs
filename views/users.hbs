@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+</head>
+<body>
+<div> 
+{{> header}}
+
+   <div class="users-container">
+      
+      <h1>All Users</h1>
+
+      {{#if error}}
+         <div class="error">{{error}}</div>
+      {{/if}}
+      
+         {{#each userEntries}} 
+            <div class="user">
+               <h2><b>UserID:</b> {{this.userid}}</h2>
+               <h2><b>Password:</b> {{this.password}}</h2> 
+               <form action="/deleteuser" method="post">
+                  <input type="hidden" name="userid" value="{{this.userid}}">
+                  <input type="hidden" name="password" value="{{this.password}}">
+                  <input type="hidden" name="role" value="{{this.role}}">
+                  <button type="submit" id="delete-button">Delete User</button>
+               </form>
+            </div>
+         {{/each}} 
+
+   </div>   
+
+</div>
+</body>
+</html>

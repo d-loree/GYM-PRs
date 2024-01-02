@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head> 
+<title>GYM PR's</title>
+<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+</head>
+<body>
+
+<div class="login-page-container">
+    <div class="login-box">
+
+      <h1>Login</h1>
+
+            {{#if error}}
+                <p class="error">{{error}}</p>
+            {{/if}}
+        <form action="/login" method="post">
+            <label for="username" class="input-label">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+
+            <label for="password" class="input-label">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <br>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p>OR</p>
+
+        <a href="/createuser"><button class="create-account-button">Create Account</button></a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

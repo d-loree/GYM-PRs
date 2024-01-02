@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create New Account</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> {{! To add home icon }}
+</head>
+<body>
+
+<div class="create-user-page-container">
+    <div class="create-user-box">
+
+      <h1>Create New Account</h1>
+        {{#if error}}
+        <div class="error">{{error}}</div>
+        {{/if}}
+        {{#if success}}
+        <div class="success">{{success}}</div>
+        {{/if}}
+      <form action="/createuser" method="post">
+
+        <label for="userid" class="input-label">Username:</label>
+        <input type="text" id="userid" name="userid" maxlength="10" onkeydown="return /[a-zA-Z0-9_]/i.test(event.key)" required>
+        <br>
+        <label for="password" class="input-label">Password:</label>
+        <input type="text" id="password" name="password" onkeydown="if(['Space'].includes(arguments[0].code)){return false;}" required>
+        <br>
+        <button type="submit">Create Account</button>
+
+      </form>
+        <p>OR</p>
+        <a href="/login"><button>Login</button></a>
+    </div>
+  </div>
+
+</body>
+</html>
